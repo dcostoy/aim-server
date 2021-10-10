@@ -18,17 +18,25 @@ export const SNACS = {
     },
     LOCATION: {
         family: 0x2,
-        subtypes: {},
+        subtypes: {
+            LOCATION_RIGHTS_REQUEST: 0x2,
+            LOCATION_RIGHTS_REPLY: 0x3,
+        },
     },
     BUDDYLIST: {
         family: 0x3,
         subtypes: {
-            BUDDY_LIST_RIGHTS_REPLY: 0x3
+            BUDDY_LIST_RIGHTS_REQUEST: 0x2,
+            BUDDY_LIST_RIGHTS_REPLY: 0x3,
         },
     },
     ICBM: {
         family: 0x4,
-        subtypes: {},
+        subtypes: {
+            ICBM_PARAM_REQUEST: 0x4,
+            ICBM_PARAM_REPLY: 0x5,
+            SEND_ICBM: 0x6,
+        },
     },
     INVITATION: {
         family: 0x6,
@@ -44,7 +52,10 @@ export const SNACS = {
     },
     PRIVACY_MGMT: {
         family: 0x9,
-        subtypes: {},
+        subtypes: {
+            PRIVACY_RIGHTS_REQUEST: 0x2,
+            PRIVACY_RIGHTS_REPLY: 0x3
+        },
     },
     USER_LOOKUP: {
         family: 0x0a,

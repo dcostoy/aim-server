@@ -9,6 +9,9 @@ import {
     selfInfoSnac,
     ssiLimitsSnac,
     buddyListRequestSnac,
+    buddyListRightsReply,
+    locationRightsReply,
+    icbmParams,
 } from './serverSnacs';
 import assert from 'assert';
 import { parseSnac, matchSnac, prettyPrintSnac } from '../snacUtils';
@@ -92,6 +95,37 @@ export class BossServer extends OscarServer {
                     data: buddyListRequestSnac({reqID: snac.requestID}),
                 });
             }
+
+            if (matchSnac(snac, 'BUDDYLIST', 'BUDDY_LIST_RIGHTS_REQUEST')) {
+                return oscarSocket.write({
+                    type: FlapType.DATA,
+                    data: buddyListRightsReply({reqID: snac.requestID})
+                });
+            }
+
+            if (matchSnac(snac, 'PRIVACY_MGMT', 'PRIVACY_RIGHTS_REQUEST')) {
+                return oscarSocket.write({
+                    type: FlapType.DATA,
+                    data: buddyListRightsReply({reqID: snac.requestID})
+                });
+            }
+
+            if (matchSnac(snac, 'LOCATION', 'LOCATION_RIGHTS_REQUEST')) {
+                return oscarSocket.write({
+                    type: FlapType.DATA,
+                    data: locationRightsReply({reqID: snac.requestID})
+                });
+            }
+
+
+             if (matchSnac(snac, 'ICBM', 'ICBM_PARAM_REQUEST')) {
+                return oscarSocket.write({
+                    type: FlapType.DATA,
+                    data: icbmParams({reqID: snac.requestID})
+                });
+            }
+
+            if (matchSnac(snac, 'ICBM', 'SEND_ICBM'))
 
             console.log('BOSS: unhandled snac:');
             console.log(prettyPrintSnac(snac));            
