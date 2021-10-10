@@ -36,6 +36,7 @@ export const SNACS = {
             ICBM_PARAM_REQUEST: 0x4,
             ICBM_PARAM_REPLY: 0x5,
             SEND_ICBM: 0x6,
+            RECEIVE_ICBM: 0x7,
         },
     },
     INVITATION: {
