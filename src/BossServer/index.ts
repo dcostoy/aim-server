@@ -8,6 +8,7 @@ import {
     rateLimitInfoSnac,
     selfInfoSnac,
     ssiLimitsSnac,
+    buddyListRequestSnac,
 } from './serverSnacs';
 import assert from 'assert';
 import { parseSnac, matchSnac, prettyPrintSnac } from '../snacUtils';
@@ -85,8 +86,15 @@ export class BossServer extends OscarServer {
                 return;
             }
 
+            if (matchSnac(snac, 'SSI', 'BUDDY_LIST_REQUEST')) {
+                return oscarSocket.write({
+                    type: FlapType.DATA,
+                    data: buddyListRequestSnac({reqID: snac.requestID}),
+                });
+            }
+
             console.log('BOSS: unhandled snac:');
-            console.log(prettyPrintSnac(snac));
+            console.log(prettyPrintSnac(snac));            
         });
 
         oscarSocket.onFlap(FlapType.ERROR, (flap) => {

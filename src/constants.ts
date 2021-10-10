@@ -22,7 +22,9 @@ export const SNACS = {
     },
     BUDDYLIST: {
         family: 0x3,
-        subtypes: {},
+        subtypes: {
+            BUDDY_LIST_RIGHTS_REPLY: 0x3
+        },
     },
     ICBM: {
         family: 0x4,
@@ -60,7 +62,7 @@ export const SNACS = {
             SSI_LIMITS_REQUEST: 0x2,
             SSI_LIMITS_RESPONSE: 0x3,
             BUDDY_LIST_REQUEST: 0x4,
-            BUDDY_LIST_RESPONE: 0x6,
+            BUDDY_LIST_RESPONSE: 0x6,
         },
     },
     OFFLINE: {
