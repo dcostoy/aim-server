@@ -26,7 +26,10 @@ export const SNACS = {
     },
     ICBM: {
         family: 0x4,
-        subtypes: {},
+        subtypes: {
+          CLI_SEND_ICBM : 0x6,
+          SRV_CLIENT_ICBM: 0x7
+        },
     },
     INVITATION: {
         family: 0x6,

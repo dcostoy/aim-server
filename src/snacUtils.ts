@@ -60,6 +60,8 @@ export function parseSnac(rawSnac: Buffer): Snac {
     };
 }
 
+
+
 /**
  * @summary Pretty Print a parsed SNAC
  */
