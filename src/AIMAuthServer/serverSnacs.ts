@@ -55,7 +55,7 @@ export function loginErrorSnac(opts: {
 export function loginSuccessSnac(opts: {
     screenname: string;
     email: string;
-    bosAddress: string;
+    bossAddress: string;
     authCookie: string;
     latestBetaVersion: string;
     latestBetaChecksum: string;
@@ -65,7 +65,7 @@ export function loginSuccessSnac(opts: {
     const tlv = new TLVBuilder()
         .string(0x1, opts.screenname)
         .string(0x11, opts.email)
-        .string(0x5, opts.bosAddress)
+        .string(0x5, "192.168.10.100:5191") // should be bossAddress
         .string(0x6, opts.authCookie)
         .string(0x40, opts.latestBetaVersion)
         .string(0x48, opts.latestBetaChecksum)

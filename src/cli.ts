@@ -25,5 +25,5 @@ export async function cli(opts: CLIOpts) {
     ]);
 
     console.log(`Auth Service listening on ${auth.address}:${auth.port}`);
-    console.log(`Boss Service listening on ${boss.address}: ${boss.port}`);
+    console.log(`Boss Service listening on ${boss.address}:${boss.port}`);
 }

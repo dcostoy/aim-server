@@ -13,3 +13,17 @@ export function parseCookieRequest(data: Buffer) {
 
     return { authCookie };
 }
+
+export function parsaeSendIcbm(data: Buffer) {
+//http://iserverd.khstu.ru/oscar/snac_04_06.html
+
+    var result = "";
+    let offset = 0;
+
+    while (offset < data.byteLength - 1) {
+        const readAByte = data.readUInt8(offset);
+        result += String.fromCharCode(readAByte);
+        offset++;
+    }
+    console.log(result);
+}

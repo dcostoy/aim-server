@@ -91,7 +91,30 @@ export class OscarSocket {
         return this;
     }
 
+    sendTestMessage(flap: { type: FlapType; data: Buffer }) {
+        const fullFlap = {
+            ...flap,
+            sequence: this.sequenceID++,
+        };
+        this.socket.write(buildFlap(fullFlap));
+    }
+
     private onData(data: Buffer) {
+        // if (data.byteLength == 6) {
+        //     var result = "";
+        //     let offset = 0;
+
+        //     while (offset < data.byteLength - 1) {
+        //         const readAByte = data.readUInt8(offset);
+        //         result += String.fromCharCode(readAByte);
+        //         offset++;
+        //     }
+
+        //     if (result.substr(0, 4) == 'test') { //idc about the `\r`
+        //         this.sendTestMessage();
+        //     }
+        //     return;
+        // }
         for (const flap of parseFlaps(data)) {
             assert(
                 this.flapListeners.has(flap.type),
