@@ -36,6 +36,7 @@ export class AIMAuthServer extends OscarServer {
         });
 
         oscarSocket.onFlap(FlapType.DATA, (flap) => {
+
             const state = this.getState(oscarSocket);
             const snac = parseSnac(flap.data);
 
@@ -102,10 +103,11 @@ export class AIMAuthServer extends OscarServer {
                         screenname: payload.screenname,
                         // TODO: Should be pulled from DB when real
                         // persistence is added
-                        email: 'DrewML@users.noreply.github.com',
+                        email: 'dcostoy@users.noreply.github.com',
                         // Point to BOSS host/port
-                        bosAddress: 'host.test:5191',
-                        // TODO: Stop hardcoding BOSS cookie
+                        //bosAddress: 'host.test:5191',
+                        bosAddress: 'titan.home.dco.st:5191',
+			// TODO: Stop hardcoding BOSS cookie
                         authCookie: '111111111',
                         latestBetaVersion: '8.1.4',
                         latestBetaChecksum: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',

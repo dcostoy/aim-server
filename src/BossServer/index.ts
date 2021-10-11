@@ -36,8 +36,8 @@ export class BossServer extends OscarServer {
         });
 
         oscarSocket.onFlap(FlapType.DATA, (flap) => {
-            const snac = parseSnac(flap.data);
 
+            const snac = parseSnac(flap.data);
             if (matchSnac(snac, 'GENERAL', 'CLIENT_FAMILY_VERSIONS')) {
                 return oscarSocket.write({
                     type: FlapType.DATA,
@@ -56,7 +56,7 @@ export class BossServer extends OscarServer {
                 return oscarSocket.write({
                     type: FlapType.DATA,
                     data: selfInfoSnac({
-                        screenName: 'xXAol4LyfeXxr',
+                        screenName: 'dcostoy',
                         userClass: UserClass.ICQ,
                         userStatus: UserStatus.ONLINE,
                         externalIP: 0,
